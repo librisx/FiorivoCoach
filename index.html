@@ -32,11 +32,9 @@
         });
 
         const data = await result.json();
-        responseElement.textContent = data.result || "Keine Antwort erhalten.";
-      } catch (error) {
-        responseElement.textContent = "Fehler beim Abrufen der Antwort.";
-      }
-    }
-  </script>
-</body>
-</html>
+
+if (data.error) {
+  responseElement.textContent = `Fehler: ${data.error.message}`;
+} else {
+  responseElement.textContent = data.result || "Keine Antwort erhalten.";
+}
