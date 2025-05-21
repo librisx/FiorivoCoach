@@ -31,7 +31,7 @@
           body: JSON.stringify({ prompt })
         });
 
-        const data = await result.json();
+      const data = await result.json();
 
 if (data.error) {
   responseElement.textContent = `Fehler: ${data.error.message}`;
